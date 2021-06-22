@@ -34,7 +34,7 @@ with open('automate_data/billboard.csv', 'rb') as file:
 suggestion = UnicodeDammit(content)
 suggestion.original_encoding
 
-
+#opt1 - folder creation
 import os, shutil, glob
 
 #Source file 
@@ -53,5 +53,17 @@ for file_path in glob.glob(os.path.join(sourcefile, '*.jpg*')):
     shutil.move(file_path, os.path.join(new_dir, os.path.basename(file_path)))
 #'iso-8859-1'
 
-opt5:
+#opt2 - folder creation:
+import os, shutil
+
+os.chdir("<abs path to desktop>")
+
+for f in os.listdir("folder"):
+folderName = f[-6:-4]
+
+if not os.path.exists(folderName):
+    os.mkdir(folderName)
+    shutil.copy(os.path.join('folder', f), folderName)
+else:
+    shutil.copy(os.path.join('folder', f), folderName)
    
