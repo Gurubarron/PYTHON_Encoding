@@ -1,3 +1,10 @@
+#unicode converstion:
+def make_unicode(inp):
+    if type(inp) != unicode:
+        inp =  inp.decode('utf-8')
+    return inp
+
+
 #opt 1
 def predict_encoding(file_path, n_lines=20):
     '''Predict a file's encoding using chardet'''
