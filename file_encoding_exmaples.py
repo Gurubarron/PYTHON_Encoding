@@ -25,3 +25,15 @@ blob = open('unknown-file', 'rb').read()
 m = magic.open(magic.MAGIC_MIME_ENCODING)
 m.load()
 encoding = m.buffer(blob)  # "utf-8" "us-ascii" etc
+
+#opt4:
+from bs4 import UnicodeDammit
+with open('automate_data/billboard.csv', 'rb') as file:
+   content = file.read()
+
+suggestion = UnicodeDammit(content)
+suggestion.original_encoding
+#'iso-8859-1'
+
+opt5:
+   
